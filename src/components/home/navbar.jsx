@@ -23,7 +23,7 @@ export default function Navbar() {
 				<nav className="relative max-w-[100rem] w-full mx-auto px-4 md:flex md:items-center md:justify-between md:px-6 lg:px-8">
 					<div className="flex items-center justify-between">
 						<Link href="/">
-							<div className="flex-none text-xl font-semibold dark:text-white">
+							<div className="flex-none text-xl font-semibold transition-all hover:scale-105">
 								<Image
 									src="/images/why_logo.png"
 									width={250}

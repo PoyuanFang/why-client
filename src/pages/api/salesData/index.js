@@ -17,7 +17,7 @@ router.get(async (req, res) => {
 	const user = await Session.associate(sessionId);
 
 	const [data] = await connection.execute(
-		'SELECT Course.Name, Course.Identifier, Course.Price, `Order`.SN AS OrderSN, `Order`.WhenPaid FROM Course JOIN User ON User.SN = Course.TeacherSN JOIN OrderDetail ON OrderDetail.CourseSN = Course.SN JOIN `Order` ON `Order`.SN = OrderDetail.OrderSN WHERE Course.WhenCreated IS NOT NULL AND `Order`.WhenPaid IS NOT NULL AND User.SN = ? ORDER BY `Order`.WhenPaid DESC',
+		'SELECT Course.Name, Course.Identifier, Course.Price, `Order`.SN AS OrderSN, `Order`.UUID, `Order`.WhenPaid FROM Course JOIN User ON User.SN = Course.TeacherSN JOIN OrderDetail ON OrderDetail.CourseSN = Course.SN JOIN `Order` ON `Order`.SN = OrderDetail.OrderSN WHERE Course.WhenCreated IS NOT NULL AND `Order`.WhenPaid IS NOT NULL AND User.SN = ? ORDER BY `Order`.WhenPaid DESC',
 		[user.SN]
 	);
 	res.status(200).json(data);
