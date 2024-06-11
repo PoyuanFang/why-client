@@ -79,7 +79,10 @@ export default function Footer() {
 											form.reset();
 											MySwal.fire({
 												icon: 'success',
-												text: '已收到您的訊息，我們將盡快回覆'
+												text: '已收到您的訊息，我們將盡快回覆',
+												confirmButtonText: 'OK'
+											}).then(() => {
+												window.location.href = window.location.href;
 											});
 										});
 									}}>
